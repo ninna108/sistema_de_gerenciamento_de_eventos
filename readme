@@ -1,0 +1,120 @@
+O Sistema de Gerenciamento de Eventos é uma solução completa desenvolvida para facilitar o gerenciamento de eventos, participantes e inscrições em uma empresa. Este sistema é projetado para ajudar na organização e controle de todos os aspectos relacionados a eventos, incluindo a administração de eventos, o registro de participantes e a gestão das inscrições realizadas.
+
+Objetivo:
+
+Desenvolver um banco de dados robusto que permita a criação, atualização, consulta e exclusão de eventos, participantes e inscrições. O sistema deve possibilitar a gestão eficiente dos dados relacionados aos eventos, garantindo que todas as informações estejam bem organizadas e acessíveis.
+
+Funcionalidades Principais:
+
+Criação do Banco de Dados:
+
+O banco de dados sistema_eventos é criado para armazenar todas as informações necessárias sobre eventos, participantes e inscrições.
+Criação das Tabelas:
+
+Eventos: Armazena informações sobre os eventos, incluindo ID do evento, nome, data, local e descrição.
+Participantes: Armazena informações sobre os participantes, incluindo ID, nome, e-mail e telefone.
+Inscrições: Registra as inscrições realizadas, com o ID da inscrição, ID do evento, ID do participante e data da inscrição.
+Inserção de Dados:
+
+Eventos, participantes e inscrições são inseridos no banco de dados para inicializar o sistema com dados de exemplo.
+Consultas e Relatórios:
+
+Todos os Eventos: Consulta para visualizar todos os eventos disponíveis no sistema.
+Participantes Inscritos em um Evento: Consulta para listar participantes de um evento específico.
+Eventos de um Participante: Consulta para verificar todos os eventos em que um participante específico está inscrito.
+Atualização de Dados:
+
+Atualizações permitem modificar informações de eventos e participantes, como o local do evento e detalhes de contato dos participantes.
+Deleção de Dados:
+
+Eventos Passados: Remoção de eventos que ocorreram antes da data atual.
+Inscrições de Eventos: Cancelamento de inscrições para um evento específico.
+Tarefas Adicionais:
+
+Listagem de participantes que se inscreveram em mais de um evento.
+Criação de uma interface simples para visualizar eventos e participantes inscritos.
+Scripts SQL Disponíveis:
+
+O projeto inclui scripts SQL para:
+
+Criação do banco de dados e tabelas.
+Inserção de dados de exemplo.
+Realização de consultas para obter relatórios e visualizações.
+Atualização e deleção de dados conforme necessário.
+Funcionalidades adicionais para listar participantes em múltiplos eventos.
+Como Executar o Projeto:
+
+Configuração Inicial:
+
+Execute os scripts SQL para criar o banco de dados sistema_eventos e as tabelas associadas.
+Inserção de Dados:
+
+Insira os dados iniciais para eventos, participantes e inscrições usando os comandos fornecidos.
+Consultas e Relatórios:
+
+Execute as consultas SQL para visualizar informações sobre eventos, participantes e inscrições.
+Atualização e Deleção:
+
+Utilize os comandos de atualização e deleção para gerenciar os dados conforme necessário.
+Tarefas Adicionais:
+
+Teste as funcionalidades adicionais para obter informações sobre participantes e eventos.
+Testes e Validação:
+
+Certifique-se de testar todas as funcionalidades para garantir que o sistema opera corretamente e que todas as operações de gerenciamento de eventos, inscrições e participantes funcionam conforme esperado.
+
+Contribuições:
+
+Este projeto está aberto a melhorias e contribuições. Sinta-se à vontade para adicionar funcionalidades, corrigir bugs ou sugerir melhorias.
+
+Licença:
+
+Este projeto está licenciado sob a MIT License.
+
+# Sistema de Gerenciamento de Eventos
+
+## Descrição
+
+Este projeto consiste na criação de um banco de dados para gerenciar eventos, participantes e inscrições. O sistema permite a administração de informações sobre eventos organizados, participantes que se inscrevem e as inscrições realizadas.
+
+## Requisitos
+
+1. **Banco de Dados:**
+   - Nome: `sistema_eventos`
+
+2. **Tabelas:**
+   - `eventos`: Informações sobre eventos (id_evento, nome, data_evento, local, descricao)
+   - `participantes`: Informações sobre participantes (id_participante, nome, email, telefone)
+   - `inscricoes`: Registros de inscrições (id_inscricao, id_evento, id_participante, data_inscricao)
+
+3. **Dados Iniciais:**
+   - Adicionar eventos, participantes e inscrições com exemplos fornecidos.
+
+4. **Consultas e Relatórios:**
+   - Consultar todos os eventos
+   - Lista de participantes inscritos em um evento específico
+   - Eventos em que um participante está inscrito
+
+5. **Atualização e Deleção:**
+   - Atualizar informações de eventos e participantes
+   - Deletar eventos passados e inscrições
+
+6. **Funcionalidades Extras:**
+   - Listar participantes inscritos em mais de um evento
+
+## Scripts SQL
+
+Inclui o código SQL completo para:
+1. Criar o banco de dados e tabelas
+2. Inserir dados iniciais
+3. Consultar dados
+4. Atualizar e deletar dados
+
+## Instruções
+
+1. Execute o script SQL para criar o banco de dados e tabelas.
+2. Insira os dados fornecidos.
+3. Execute as consultas e atualizações conforme necessário.
+
+
+
