@@ -1,0 +1,72 @@
+SET SQL_SAFE_UPDATES = 0;
+DROP DATABASE IF EXISTS sistema_eventos;
+CREATE DATABASE sistema_eventos;
+USE sistema_eventos;
+CREATE TABLE eventos (
+    id_evento INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    data_evento DATE NOT NULL,
+    local VARCHAR(100),
+    descricao TEXT
+);
+CREATE TABLE participantes (
+    id_participante INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    telefone VARCHAR(20)
+);
+CREATE TABLE inscricoes (
+    id_inscricao INT AUTO_INCREMENT PRIMARY KEY,
+    id_evento INT,
+    id_participante INT,
+    data_inscricao DATE NOT NULL,
+    FOREIGN KEY (id_evento) REFERENCES eventos(id_evento),
+    FOREIGN KEY (id_participante) REFERENCES participantes(id_participante)
+);
+INSERT INTO eventos (nome, data_evento, local, descricao) VALUES
+('Evento A', '2024-10-15', 'Auditório Central', 'Descrição do Evento A'),
+('Evento B', '2024-11-01', 'Sala de Conferências', 'Descrição do Evento B'),
+('Evento C', '2024-12-10', 'Espaço Externo', 'Descrição do Evento C');
+INSERT INTO participantes (nome, email, telefone) VALUES
+('Pedro Lima', 'pedro.lima@email.com', '1234-5678'),
+('Clara Souza', 'clara.souza@email.com', '2345-6789'),
+('Felipe Costa', 'felipe.costa@email.com', '3456-7890');
+INSERT INTO inscricoes (id_evento, id_participante, data_inscricao) VALUES
+(1, 1, '2024-10-01'),
+(1, 2, '2024-10-02'),
+(2, 2, '2024-10-20'),
+(2, 3, '2024-10-21'),
+(3, 1, '2024-11-15'),
+(3, 3, '2024-11-16');
+SELECT * FROM eventos;
+SELECT p.id_participante, p.nome, p.email, p.telefone
+FROM inscricoes i
+JOIN participantes p ON i.id_participante = p.id_participante
+WHERE i.id_evento = 1;
+SELECT e.id_evento, e.nome, e.data_evento, e.local, e.descricao
+FROM inscricoes i
+JOIN eventos e ON i.id_evento = e.id_evento
+WHERE i.id_participante = 1;
+UPDATE eventos
+SET local = 'Novo Auditório Central'
+WHERE id_evento = 1;
+UPDATE participantes
+SET telefone = '9876-5432'
+WHERE id_participante = 1;
+DELETE FROM eventos
+WHERE data_evento < CURDATE();
+DELETE FROM inscricoes
+WHERE id_evento = 1;
+SELECT p.id_participante, p.nome, COUNT(i.id_evento) AS total_eventos
+FROM inscricoes i
+JOIN participantes p ON i.id_participante = p.id_participante
+GROUP BY p.id_participante
+HAVING total_eventos > 1;
+-- Visualizar todos os eventos
+SELECT * FROM eventos;
+
+-- Visualizar participantes inscritos em um evento específico (id_evento = 2)
+SELECT p.nome, p.email, p.telefone
+FROM participantes p
+JOIN inscricoes i ON p.id_participante = i.id_participante
+WHERE i.id_evento = 2;
